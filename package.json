@@ -1,0 +1,23 @@
+{
+  "name": "jeefo_math_2d",
+  "version": "0.0.1",
+  "homepage": "https://github.com/je3f0o/jeefo",
+  "copyright": "2018",
+  "description": "Simple vector mathematic library for 2d",
+  "author": {
+    "name": "je3f0o",
+    "email": "je3f0o@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/je3f0o/jeefo_math_2d.git"
+  },
+  "keywords": [
+    "jeefo",
+    "math_2d"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}

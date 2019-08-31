@@ -1,7 +1,7 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-* File Name   : matrix_2dh.js
+* File Name   : transformation_matrix_2dh.js
 * Created at  : 2019-05-02
-* Updated at  : 2019-05-02
+* Updated at  : 2019-08-13
 * Author      : jeefo
 * Purpose     :
 * Description :
@@ -22,7 +22,7 @@ const { cos, sin, abs } = Math;
 // Compares floating point values with some tolerance (epsilon)
 const is_equal = (f1, f2) => abs(f1 - f2) < 1e-14;
 
-module.exports = class TransformationMatrix2DH {
+class TransformationMatrix2DH {
     /**
      * 2D homogeneous transformation matrix initialized with given values or
      * identity matrix.
@@ -368,4 +368,6 @@ module.exports = class TransformationMatrix2DH {
             m1.f + (m2.f - m1.f) * range
         );
     }
-};
+}
+
+module.exports = TransformationMatrix2DH;

@@ -3,13 +3,14 @@
     "version": "0.0.3",
     "homepage": "https://github.com/je3f0o/jeefo_math",
     "copyright": "2018",
-    "description": "Mathematic library for jeefo",
+    "description": "part of jeefo framework",
     "author": {
         "name": "je3f0o",
         "email": "je3f0o@gmail.com"
     },
     "license": "MIT",
     "scripts": {
+        "save": "git add . && git c \"`date`\" && git p",
         "jeefo_publish": "node node_modules/@jeefo/publish/publish.js"
     },
     "repository": {

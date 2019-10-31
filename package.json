@@ -1,23 +1,30 @@
 {
-  "name": "@jeefo/math",
-  "version": "0.0.1",
-  "homepage": "https://github.com/je3f0o/jeefo_math",
-  "copyright": "2018",
-  "description": "Mathematic library for jeefo",
-  "author": {
-    "name": "je3f0o",
-    "email": "je3f0o@gmail.com"
-  },
-  "license": "MIT",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/je3f0o/jeefo_math.git"
-  },
-  "keywords": [
-    "jeefo",
-    "math"
-  ],
-  "dependencies": {},
-  "devDependencies": {}
+    "name": "@jeefo/math",
+    "version": "0.0.3",
+    "homepage": "https://github.com/je3f0o/jeefo_math",
+    "copyright": "2018",
+    "description": "Mathematic library for jeefo",
+    "author": {
+        "name": "je3f0o",
+        "email": "je3f0o@gmail.com"
+    },
+    "license": "MIT",
+    "scripts": {
+        "jeefo_publish": "node node_modules/@jeefo/publish/publish.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/je3f0o/jeefo_math.git"
+    },
+    "keywords": [
+        "jeefo",
+        "je3f0o",
+        "vec2",
+        "trasformer_2d",
+        "math"
+    ],
+    "dependencies": {},
+    "devDependencies": {
+        "@jeefo/publish": "0.0.31"
+    }
 }

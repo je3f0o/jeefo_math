@@ -1,7 +1,7 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 * File Name   : vector2.js
 * Created at  : 2017-10-02
-* Updated at  : 2019-08-13
+* Updated at  : 2019-05-09
 * Author      : jeefo
 * Purpose     :
 * Description :
@@ -18,24 +18,17 @@ const { min, max, cos, sin, sqrt, atan2 } = Math;
 
 class Vector2 {
     /**
-     * Creating a new instance of Vector2 class. Which is 2 dimensional vector
-     * with x,y components initialized with given values or zeros.
-     *
-     * @param {number} x - value of x axis
-     * @param {number} y - value of y axis
-     * @returns {Vector2} - new instance.
+     * 2D vector initialized with given values or zeros.
      */
 	constructor (x = 0, y = x) {
 		this.x = x;
 		this.y = y;
-        return this;
 	}
 
 	/**
      * Apply element wise add operation.
      *
      * @param {Vector2} other - Other vector.
-     * @returns {Vector2} - this instance itself for chain methods.
 	 */
 	add (other) {
 		this.x += other.x;
@@ -47,7 +40,6 @@ class Vector2 {
      * Apply element wise subtraction operation.
      *
      * @param {Vector2} other - Other vector.
-     * @returns {Vector2} - this instance itself for chain methods.
 	 */
 	subtract (other) {
 		this.x -= other.x;
@@ -60,7 +52,6 @@ class Vector2 {
      *
      * @param {number} scaler_x - Scale factor x or unified scaler
      * @param {number} scaler_y - Scale factor y
-     * @returns {Vector2} - this instance itself for chain methods.
      */
 	scale (scaler_x, scaler_y = scaler_x) {
 		this.x *= scaler_x;
@@ -69,14 +60,10 @@ class Vector2 {
 	}
 
     /**
-     * This method is little bit optimized version of 2 function calls.
-     * Which is equivalent with this code:
-     * `this.add(Vector2.scale(vector, scaler))`
-     * Instead single function call.
+     * This method is intented for single function call for 2 operations.
      *
      * @param {Vector2} vector - A vector to scale.
      * @param {number} scaler  - Unified scaling factor to scale vector.
-     * @returns {Vector2} - this instance itself for chain methods.
      */
 	add_scaled_vector (vector, scaler) {
 		this.x += vector.x * scaler;
@@ -88,8 +75,7 @@ class Vector2 {
      * Linearly interpolate to target vector.
      *
      * @param {Vector2} target - Target vector.
-     * @param {number} alpha   - Normalized scaler value of delta vector.
-     * @returns {Vector2} - this instance itself for chain methods.
+     * @param {number} alpha   - Normalized distance value between 2 vectors.
      */
 	lerp (target, alpha) {
 		this.scale(1 - alpha).add_scaled_vector(target, alpha);
@@ -97,57 +83,42 @@ class Vector2 {
 	}
 
     /**
-     * Calculate theta angle.
-     *
-     * @returns {number} - theta angle.
+     * undocumented
      */
-	get_angle () {
-        return atan2(this.y, this.x);
-    }
+	get_angle () { return atan2(this.y, this.x); }
 
     /**
-     * Calculate x,y components for given angle and apply it.
-     *
-     * @returns {Vector2} - this instance itself for chain methods.
+     * undocumented
      */
 	set_angle (angle) {
 		const length = this.get_length();
 		this.x = cos(angle) * length;
 		this.y = sin(angle) * length;
-        return this;
 	}
 
     /**
-     * Calculate x,y components for given length and apply it.
-     *
-     * @returns {Vector2} - this instance itself for chain methods.
+     * undocumented
      */
 	set_length (length) {
 		const angle = this.get_angle();
 		this.x = cos(angle) * length;
 		this.y = sin(angle) * length;
-        return this;
 	}
 
     /**
-     * Calculate dot product between this vector and given vector. Which is
-     * very useful to find cosine angle between 2 vectors or scaler projection.
+     * Calculate cosine angle to given vector.
      *
-     * @returns {number} - dot product.
+     * @returns {number} - cosine angle.
      */
-	dot (other) {
-        return (this.x * other.x) + (this.y * other.y);
-    }
+	dot (other) { return (this.x * other.x) + (this.y * other.y); }
 
     /**
-     * Calculate cross product between this vector and given vector.
-     * Which is very useful to finding ... [TODO]
+     * Calculate the cross product of this vector and the given vector.
      *
-     * @returns {number} - cross product.
+     * @returns {number} - The cross product of this vector and the given
+     *   vector.
      */
-	cross (other) {
-        return (this.x * other.y) - (this.y * other.x);
-    }
+	cross (other) { return (this.x * other.y) - (this.y * other.x); }
 
 	get_length () {
 		// Unoptimized
